@@ -12,7 +12,7 @@ from pyramid_kvs.testing import MockCache
 
 class DummyRequest(testing.DummyRequest):
     def __init__(self, *args, **kwargs):
-        super(DummyRequest, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.session = AuthTokenSession(
             self, KVS("mock", key_prefix="header::", codec="json"), "X-Dummy-Header"
         )

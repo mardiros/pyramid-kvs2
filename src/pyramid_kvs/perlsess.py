@@ -21,7 +21,7 @@ class PerlSession:
         self.request = request
         self._session_data = self.client.get(self._session_key)
         if self._session_data is None:
-            log.warn("session %s not deserialized" % self._session_key)
+            log.warn(f"session {self._session_key} not deserialized")
             self._session_data = {}
 
     def __call__(self, request):

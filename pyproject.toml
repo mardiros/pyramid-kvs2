@@ -50,6 +50,7 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 88
 target-version = "py37"
+extend-exclude = ["src/pyramid_kvs/storable.py"]
 
 [tool.ruff.lint]
 select = [
@@ -59,7 +60,7 @@ select = [
     "UP",  # alter when better syntax is available
     "RUF", #  the ruff devleoper's own rules
 ]
-ignore = ["UP006", "UP035"]
+ignore = ["UP006", "UP035", "RUF012"]
 
 [build-system]
 requires = ["pdm-backend"]

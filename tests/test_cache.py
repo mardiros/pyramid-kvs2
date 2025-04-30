@@ -10,7 +10,7 @@ from pyramid_kvs.testing import MockCache
 
 class DummyRequest(testing.DummyRequest):
     def __init__(self, *args, **kwargs):
-        super(DummyRequest, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         subscribe_cache(NewRequest(self))
 
 
