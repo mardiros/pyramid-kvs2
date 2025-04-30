@@ -6,7 +6,7 @@ from .serializer import serializer
 log = logging.getLogger(__name__)
 
 
-class PerlSession(object):
+class PerlSession:
     """
     Read only session from a perl storable.
     Use the "connect method" during the configuration to initialize it

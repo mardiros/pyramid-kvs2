@@ -18,7 +18,7 @@ def _create_token():
 
 
 @implementer(ISession)
-class SessionBase(object):
+class SessionBase:
     def __init__(self, request, client, key_name):
         self._dirty = False
         self.key_name = key_name
@@ -198,7 +198,7 @@ class CookieSession(SessionBase):
 
 
 @implementer(ISessionFactory)
-class SessionFactory(object):
+class SessionFactory:
     def __init__(self, settings):
         config = serializer("json").loads(settings["kvs.session"])
         config.setdefault("key_prefix", "session::")

@@ -1,12 +1,13 @@
+import unittest
+
 from pyramid import testing
 from pyramid.events import NewRequest
 
-from .. import subscribe_ratelimit
-from ..kvs import KVS
-from ..ratelimit import Ratelimit, RateLimitError
-from ..session import AuthTokenSession
-from ..testing import MockCache
-from .compat import unittest
+from pyramid_kvs import subscribe_ratelimit
+from pyramid_kvs.kvs import KVS
+from pyramid_kvs.ratelimit import Ratelimit, RateLimitError
+from pyramid_kvs.session import AuthTokenSession
+from pyramid_kvs.testing import MockCache
 
 
 class DummyRequest(testing.DummyRequest):
