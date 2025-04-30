@@ -1,9 +1,10 @@
 import unittest
 
 from pyramid import testing
-from pyramid.events import NewRequest
+from pyramid.interfaces import IRequestExtensions
+from pyramid.request import apply_request_extensions
 
-from pyramid_kvs import serializer, subscribe_cache
+from pyramid_kvs import serializer
 from pyramid_kvs.cache import ApplicationCache
 from pyramid_kvs.testing import MockCache
 
@@ -11,7 +12,8 @@ from pyramid_kvs.testing import MockCache
 class DummyRequest(testing.DummyRequest):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        subscribe_cache(NewRequest(self))
+        exts: IRequestExtensions = self.registry.queryUtility(IRequestExtensions)
+        apply_request_extensions(self, exts)
 
 
 class CacheTestCase(unittest.TestCase):

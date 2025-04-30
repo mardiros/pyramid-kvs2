@@ -19,31 +19,20 @@ from .session import SessionFactory
 __version__ = version("pyramid-kvs")
 
 
-def subscribe_perlsess(event):
-    request = event.request
-    request.set_property(PerlSession(request), "perlsess", reify=True)
-
-
-def subscribe_cache(event):
-    request = event.request
-    request.set_property(ApplicationCache(request), "cache", reify=True)
-
-
 def subscribe_ratelimit(event):
     Ratelimit(event.request)
 
 
 def includeme(config):
-
     settings = config.registry.settings
 
     if "kvs.perlsess" in settings:
         PerlSession.connect(settings)
-        config.add_subscriber(subscribe_perlsess, NewRequest)
+        config.add_subscriber(PerlSession, "perlsess", property=True)
 
     if "kvs.cache" in settings:
         ApplicationCache.connect(settings)
-        config.add_subscriber(subscribe_cache, NewRequest)
+        config.add_request_method(ApplicationCache, "cache", property=True)
 
     if "kvs.session" in settings:
         config.set_session_factory(SessionFactory(settings))
