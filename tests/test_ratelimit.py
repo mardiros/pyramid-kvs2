@@ -5,8 +5,8 @@ from pyramid.config import Configurator
 from pyramid.events import NewRequest
 from pyramid.testing import DummyRequest
 
-from pyramid_kvs.ratelimit import RateLimitError
-from pyramid_kvs.testing import MockCache
+from pyramid_kvs2.ratelimit import RateLimitError
+from pyramid_kvs2.testing import MockCache
 
 
 def test_ratelimit(config: Configurator, dummy_request_factory: Type[DummyRequest]):

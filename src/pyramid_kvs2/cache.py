@@ -1,7 +1,7 @@
 import logging
 from typing import Any, List, Mapping, Optional
 
-from pyramid_kvs.typing import Request
+from pyramid_kvs2.typing import Request
 
 from .kvs import KVS
 from .serializer import serializer

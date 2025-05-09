@@ -4,7 +4,7 @@ from typing import Type
 
 from pyramid import testing
 
-from pyramid_kvs.testing import MockCache
+from pyramid_kvs2.testing import MockCache
 
 
 def test_authtoken(dummy_request_factory: Type[testing.DummyRequest]):

@@ -6,8 +6,8 @@ from pyramid.config import Configurator
 from pyramid.interfaces import IRequestExtensions, ISessionFactory
 from pyramid.request import apply_request_extensions
 
-from pyramid_kvs.session import SessionFactory
-from pyramid_kvs.typing import Request
+from pyramid_kvs2.session import SessionFactory
+from pyramid_kvs2.typing import Request
 
 
 @pytest.fixture(scope="session")
@@ -35,7 +35,7 @@ def settings():
 @pytest.fixture()
 def config(settings: Mapping[str, Any]) -> Iterator[Configurator]:
     config = testing.setUp(settings=settings)
-    config.include("pyramid_kvs.testing")
+    config.include("pyramid_kvs2.testing")
     yield config
     testing.tearDown()
 

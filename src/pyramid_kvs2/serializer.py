@@ -1,7 +1,7 @@
 import json
 import pickle
 
-from pyramid_kvs.typing import Codec
+from pyramid_kvs2.typing import Codec
 
 
 def serializer(codec: str) -> Codec:

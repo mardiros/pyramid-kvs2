@@ -1,6 +1,6 @@
-import pyramid_kvs
+import pyramid_kvs2
 
-__version__ = pyramid_kvs.__version__
+__version__ = pyramid_kvs2.__version__
 
 if __name__ == "__main__":
     print(__version__, end="")

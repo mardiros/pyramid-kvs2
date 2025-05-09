@@ -3,7 +3,7 @@ import logging
 
 from pyramid.response import Response
 
-from pyramid_kvs.typing import Request, Settings
+from pyramid_kvs2.typing import Request, Settings
 
 log = logging.getLogger(__name__)
 

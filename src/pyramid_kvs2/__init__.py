@@ -16,7 +16,7 @@ from .cache import ApplicationCache
 from .ratelimit import Ratelimit
 from .session import SessionFactory
 
-__version__ = version("pyramid-kvs")
+__version__ = version("pyramid-kvs2")
 
 
 def subscribe_ratelimit(event: NewRequest) -> None:

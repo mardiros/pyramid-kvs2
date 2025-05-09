@@ -1,5 +1,5 @@
 [project]
-name = "pyramid-kvs"
+name = "pyramid-kvs2"
 version = "1.0.0"
 description = "Session and cache for Pyramid"
 authors = [{ name = "Gandi", email = "tech@gandi.net" }]
@@ -22,11 +22,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Gandi/pyramid_kvs"
-Documentation = "https://github.com/Gandi/pyramid_kvs/blob/main/README.rst"
-Repository = "https://github.com/Gandi/pyramid_kvs.git"
-Issues = "https://github.com/Gandi/pyramid_kvs/issues"
-Changelog = "https://github.com/Gandi/pyramid_kvs/blob/main/CHANGES.rst"
+Homepage = "https://github.com/mardiros/pyramid_kvs2"
+Documentation = "https://github.com/mardiros/pyramid_kvs2/blob/main/README.rst"
+Repository = "https://github.com/mardiros/pyramid_kvs2.git"
+Issues = "https://github.com/mardiros/pyramid_kvs2/issues"
+Changelog = "https://github.com/mardiros/pyramid_kvs2/blob/main/CHANGES.rst"
 
 
 [dependency-groups]
@@ -65,7 +65,7 @@ ignore = ["UP006", "UP035", "RUF012"]
 [[tool.mypy.overrides]]
 disallow_any_generics = true
 disallow_untyped_defs = true
-module = "pyramid_kvs.*"
+module = "pyramid_kvs2.*"
 
 [[tool.mypy.overrides]]
 module = ["pyramid.*", "zope.*", "memcache"]
