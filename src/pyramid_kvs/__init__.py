@@ -12,7 +12,6 @@ except ImportError:
 from pyramid.events import NewRequest
 
 from .cache import ApplicationCache
-from .perlsess import PerlSession
 from .ratelimit import Ratelimit
 from .session import SessionFactory
 
@@ -25,10 +24,6 @@ def subscribe_ratelimit(event):
 
 def includeme(config):
     settings = config.registry.settings
-
-    if "kvs.perlsess" in settings:
-        PerlSession.connect(settings)
-        config.add_subscriber(PerlSession, "perlsess", property=True)
 
     if "kvs.cache" in settings:
         ApplicationCache.connect(settings)

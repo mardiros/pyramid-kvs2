@@ -50,7 +50,6 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 88
 target-version = "py37"
-extend-exclude = ["src/pyramid_kvs/storable.py"]
 
 [tool.ruff.lint]
 select = [
