@@ -3,13 +3,14 @@ import datetime
 
 import pyramid_kvs2
 
+head = "Changelog\n=========\n"
 header = (
-    "Changelog\n",
-    "=========\n\n",
     f"{pyramid_kvs2.__version__} - "
     f"Released on {datetime.datetime.now().date().isoformat()}"
 )
-with open("CHANGELOG.rst.new", "w") as changelog:
+with open("CHANGES.rst.new", "w") as changelog:
+    changelog.write(head)
+    changelog.write("\n")
     changelog.write(header)
     changelog.write("\n")
     changelog.write("-" * len(header))
