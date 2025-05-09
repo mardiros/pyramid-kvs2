@@ -1,8 +1,8 @@
 from typing import Any, Callable, Mapping
 
-from typing_extensions import Protocol  # python 3.7
 from pyramid.interfaces import ISession
 from pyramid.response import Response
+from typing_extensions import Protocol  # python 3.7
 
 Settings = Mapping[str, Any]  # shoud be a typed dict
 
