@@ -1,4 +1,5 @@
 import binascii
+import json
 import logging
 import os
 import time
@@ -8,7 +9,6 @@ from pyramid.interfaces import ISession, ISessionFactory
 from zope.interface import implementer
 
 from .kvs import KVS
-from .serializer import serializer
 
 log = logging.getLogger(__name__)
 
@@ -195,7 +195,10 @@ class CookieSession(SessionBase):
 @implementer(ISessionFactory)
 class SessionFactory:
     def __init__(self, settings):
-        config = serializer("json").loads(settings["kvs.session"])
+        if isinstance(settings["kvs.session"], dict):
+            config = settings["kvs.session"].copy()
+        else:
+            config = json.loads(settings["kvs.session"])
         config.setdefault("key_prefix", "session::")
         sessions = {
             "header": AuthTokenSession,

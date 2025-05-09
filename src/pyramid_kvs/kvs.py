@@ -1,10 +1,4 @@
-import sys
-
 from .serializer import serializer
-
-PY3 = sys.version_info[0] == 3
-if PY3:
-    unicode = str
 
 
 class KVS:
@@ -43,7 +37,7 @@ class KVS:
         return self.raw_set(key, value, ttl or self.ttl)
 
     def _get_key(self, key):
-        if isinstance(key, unicode):
+        if isinstance(key, str):
             key = key.encode("utf-8")
         return self.key_prefix + key
 

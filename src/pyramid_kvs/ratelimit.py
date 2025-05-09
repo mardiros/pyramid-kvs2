@@ -1,6 +1,5 @@
+import json
 import logging
-
-from .serializer import serializer
 
 log = logging.getLogger(__name__)
 
@@ -20,10 +19,9 @@ class Ratelimit:
     key_suffix = "::ratelimit"
 
     def __init__(self, request):
-        key = request.session.get_session_key() + self.key_suffix
+        key = (request.session.get_session_key() + self.key_suffix).encode()
         client = request.session.client
         request.add_response_callback(self._add_headers)
-
         if client.get(key) is None:
             self.count = 1
             client.raw_set(key, str(self.count), self.window)
@@ -35,10 +33,14 @@ class Ratelimit:
 
     @classmethod
     def configure(cls, settings):
-        settings = serializer("json").loads(settings["kvs.ratelimit"])
-        cls.key_suffix = settings.get("key_suffix", "::ratelimit")
-        cls.window = settings.get("window", 1)
-        cls.limit = settings.get("limit", 10)
+        if isinstance(settings["kvs.ratelimit"], dict):
+            config = settings["kvs.ratelimit"].copy()
+        else:
+            config = json.loads(settings["kvs.ratelimit"])
+
+        cls.key_suffix = config.get("key_suffix", cls.key_suffix)
+        cls.window = config.get("window", cls.window)
+        cls.limit = config.get("limit", cls.limit)
 
     def _add_headers(self, request, response):
         response.headers["X-RateLimit-Limit"] = str(self.limit)
