@@ -1,12 +1,5 @@
-try:
-    import cPickle as pickle
-except ImportError:
-    import pickle
-
-try:
-    import simplejson as json
-except ImportError:
-    import json
+import json
+import pickle
 
 
 def serializer(codec):
