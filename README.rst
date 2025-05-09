@@ -2,7 +2,7 @@
 pyramid_kvs
 ===========
 
-.. image:: https://travis-ci.org/Gandi/pyramid_kvs.svg?branch=master
+.. image:: https://travis-ci.org/Gandi/pyramid_kvs.svg?branch=main
     :target: https://travis-ci.org/Gandi/pyramid_kvs
 
 Some Key Value Store basics for pyramid:
@@ -128,7 +128,7 @@ tweak the settings like above.
     # kvs_kwargs for redis is the parameters of the redis.Redis class
     # see: http://redis-py.readthedocs.org/en/latest/
     # for memcache, parameters of the memcache.Client class
-    # https://github.com/linsomniac/python-memcached/blob/master/memcache.py#L160
+    # https://github.com/linsomniac/python-memcached/blob/main/memcache.py#L160
     kvs.cache = {"type": "redis"}
 
     # declare the session

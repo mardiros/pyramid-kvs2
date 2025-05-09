@@ -23,10 +23,10 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/Gandi/pyramid_kvs"
-Documentation = "https://github.com/Gandi/pyramid_kvs/blob/master/README.rst"
+Documentation = "https://github.com/Gandi/pyramid_kvs/blob/main/README.rst"
 Repository = "https://github.com/Gandi/pyramid_kvs.git"
 Issues = "https://github.com/Gandi/pyramid_kvs/issues"
-Changelog = "https://github.com/Gandi/pyramid_kvs/blob/master/CHANGES.rst"
+Changelog = "https://github.com/Gandi/pyramid_kvs/blob/main/CHANGES.rst"
 
 
 [dependency-groups]
