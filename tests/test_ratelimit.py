@@ -1,35 +1,27 @@
-import unittest
+from typing import Type
 
-from pyramid import testing
+import pytest
+from pyramid.config import Configurator
 from pyramid.events import NewRequest
+from pyramid.testing import DummyRequest
 
-from pyramid_kvs import subscribe_ratelimit
-from pyramid_kvs.kvs import KVS
-from pyramid_kvs.ratelimit import Ratelimit, RateLimitError
-from pyramid_kvs.session import AuthTokenSession
+from pyramid_kvs.ratelimit import RateLimitError
 from pyramid_kvs.testing import MockCache
 
 
-class DummyRequest(testing.DummyRequest):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.session = AuthTokenSession(
-            self, KVS("mock", key_prefix="header::", codec="json"), "X-Dummy-Header"
-        )
-        subscribe_ratelimit(NewRequest(self))
+def test_ratelimit(config: Configurator, dummy_request_factory: Type[DummyRequest]):
+    assert config.registry
+    MockCache.cached_data = {
+        b"session::x-dummy-header::dummy_key": '{"akey": "a val"}',
+        b"session::x-dummy-header::dummy_key::ratelimit": "9",
+    }
+    req = dummy_request_factory(headers={"X-Dummy-Header": "dummy_key"})
 
+    config.registry.notify(NewRequest(req))
+    rte = MockCache.cached_data[b"session::x-dummy-header::dummy_key::ratelimit"]
+    assert rte == "10"
 
-class RatelimitTestCase(unittest.TestCase):
-    def test_ratelimit(self):
-        Ratelimit.limit = 10
+    with pytest.raises(RateLimitError) as ctx:
+        config.registry.notify(NewRequest(req))
 
-        MockCache.cached_data = {
-            b"header::x-dummy-header::dummy_key": '{"akey": "a val"}',
-            b"header::x-dummy-header::dummy_key::ratelimit": "9",
-        }
-        DummyRequest(headers={"X-Dummy-Header": "dummy_key"})
-        rte = MockCache.cached_data[b"header::x-dummy-header::dummy_key::ratelimit"]
-        self.assertEqual(rte, "10")
-        self.assertRaises(
-            RateLimitError, DummyRequest, headers={"X-Dummy-Header": "dummy_key"}
-        )
+    assert str(ctx.value) == ""
