@@ -1,11 +1,17 @@
 Changelog
 =========
 
+2.0.1 - Released on 2025-05-09
+------------------------------
+* Fix compatibility with python 3.7
+
 2.0.0 - Released on 2025-05-09
 ------------------------------
 * Release pyramid-kvs2 as a (temporary) fork of pyramid-kvs
   * Drop support of python 2
   * Drop support of python <3.7
+
+  * Remove perlsess helper
 
 0.4.1 (2019-03-12)
 ------------------
