@@ -2,7 +2,7 @@ from typing import Any, ClassVar, Dict, Optional
 
 from pyramid.config import Configurator
 
-from pyramid_kvs.typing import AnyValue
+from pyramid_kvs2.typing import AnyValue
 
 from . import kvs
 
@@ -33,4 +33,4 @@ class MockCache(kvs.KVS):
 
 def includeme(config: Configurator) -> None:
     kvs.register("mock", MockCache)
-    config.include("pyramid_kvs")
+    config.include("pyramid_kvs2")

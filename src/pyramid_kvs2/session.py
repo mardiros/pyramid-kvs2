@@ -19,7 +19,7 @@ from pyramid.response import Response
 from typing_extensions import Optional
 from zope.interface import implementer
 
-from pyramid_kvs.typing import AnyValue, Request, Settings
+from pyramid_kvs2.typing import AnyValue, Request, Settings
 
 from .kvs import KVS
 

@@ -1,6 +1,6 @@
-===========
-pyramid_kvs
-===========
+============
+pyramid_kvs2
+============
 
 .. image:: https://github.com/mardiros/pyramid-kvs2/actions/workflows/tests.yml/badge.svg
     :target: https://github.com/mardiros/pyramid-kvs2/actions/workflows/tests.yml
@@ -105,7 +105,7 @@ tweak the settings like above.
     # development.ini
     [app:main]
     pyramid.includes =
-        pyramid_kvs
+        pyramid_kvs2
 
     # declare the application cache
     # except type, every keys are optional
@@ -125,10 +125,10 @@ tweak the settings like above.
 tests
 =====
 
-pyramid_kvs have also a 'mock' implementation of a `kvs` used for testing
+pyramid_kvs2 have also a 'mock' implementation of a `kvs` used for testing
 purpose, register it using the pyramid plugins in your tests:::
 
 ::
 
   pyramid.includes =
-      pyramid_kvs.testing
+      pyramid_kvs2.testing

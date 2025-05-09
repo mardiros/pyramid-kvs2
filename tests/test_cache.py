@@ -1,6 +1,6 @@
-from pyramid_kvs import serializer
-from pyramid_kvs.cache import ApplicationCache
-from pyramid_kvs.testing import MockCache
+from pyramid_kvs2 import serializer
+from pyramid_kvs2.cache import ApplicationCache
+from pyramid_kvs2.testing import MockCache
 
 
 def test_cache(dummy_request):

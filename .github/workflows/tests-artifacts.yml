@@ -27,8 +27,8 @@ jobs:
 
       - name: "Install"
         run: |
-          pip install dist/pyramid_kvs-*.whl --force-reinstall
+          pip install dist/pyramid_kvs2-*.whl --force-reinstall
 
       - name: "Test sdist"
         run: |
-          python -c "from pyramid_kvs import __version__; print(__version__, end='')"
+          python -c "from pyramid_kvs2 import __version__; print(__version__, end='')"

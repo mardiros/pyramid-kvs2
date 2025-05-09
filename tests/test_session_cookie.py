@@ -5,13 +5,13 @@ from typing import Type
 import pytest
 from pyramid import testing
 
-from pyramid_kvs.testing import MockCache
+from pyramid_kvs2.testing import MockCache
 
 
 @pytest.fixture()
 def settings():
     return {
-        "pyramid.includes": ["pyramid_kvs.testing"],
+        "pyramid.includes": ["pyramid_kvs2.testing"],
         "kvs.session": {
             "kvs": "mock",
             "key_name": "SessionId",

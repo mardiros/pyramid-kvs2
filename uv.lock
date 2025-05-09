@@ -939,7 +939,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pyramid-kvs"
+name = "pyramid-kvs2"
 version = "1.0.0"
 source = { editable = "." }
 dependencies = [

@@ -1,6 +1,6 @@
 from typing import Any, List, Mapping, Optional, Type, Union
 
-from pyramid_kvs.typing import AnyValue
+from pyramid_kvs2.typing import AnyValue
 
 from .serializer import serializer
 
