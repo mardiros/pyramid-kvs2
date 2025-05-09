@@ -20,7 +20,6 @@ class Ratelimit:
     key_suffix = "::ratelimit"
 
     def __init__(self, request):
-
         key = request.session.get_session_key() + self.key_suffix
         client = request.session.client
         request.add_response_callback(self._add_headers)

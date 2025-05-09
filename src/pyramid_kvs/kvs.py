@@ -1,4 +1,3 @@
-
 import sys
 
 from .serializer import serializer
