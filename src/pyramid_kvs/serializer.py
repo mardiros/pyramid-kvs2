@@ -1,4 +1,3 @@
-
 try:
     import cPickle as pickle
 except ImportError:
@@ -9,24 +8,6 @@ try:
 except ImportError:
     import json
 
-try:
-    import storable
-except ImportError:
-    from . import storable
-
-
-class Storable:
-    """Something you probably don't want to use.
-    This class is to get the perl storable support as a readable codec."""
-
-    @staticmethod
-    def loads(data):
-        return storable.thaw(data)
-
-    @staticmethod
-    def dumps(data):
-        raise NotImplementedError
-
 
 def serializer(codec):
     """
@@ -34,5 +15,5 @@ def serializer(codec):
     json and pickle are fully supported.
     storable support read only.
     """
-    formats = {"json": json, "pickle": pickle, "storable": Storable}
+    formats = {"json": json, "pickle": pickle}
     return formats[codec]
