@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.0.2 - Released on 2025-05-12
+------------------------------
+* Fix broken links
+
 2.0.1 - Released on 2025-05-09
 ------------------------------
 * Fix compatibility with python 3.7
