@@ -31,11 +31,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mardiros/pyramid_kvs2"
-Documentation = "https://github.com/mardiros/pyramid_kvs2/blob/main/README.rst"
-Repository = "https://github.com/mardiros/pyramid_kvs2.git"
-Issues = "https://github.com/mardiros/pyramid_kvs2/issues"
-Changelog = "https://github.com/mardiros/pyramid_kvs2/blob/main/CHANGES.rst"
+Homepage = "https://github.com/mardiros/pyramid-kvs2"
+Documentation = "https://github.com/mardiros/pyramid-kvs2/blob/main/README.rst"
+Repository = "https://github.com/mardiros/pyramid-kvs2.git"
+Issues = "https://github.com/mardiros/pyramid-kvs2/issues"
+Changelog = "https://github.com/mardiros/pyramid-kvs2/blob/main/CHANGES.rst"
 
 
 [dependency-groups]

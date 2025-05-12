@@ -1,5 +1,5 @@
 ============
-pyramid_kvs2
+pyramid-kvs2
 ============
 
 .. image:: https://github.com/mardiros/pyramid-kvs2/actions/workflows/tests.yml/badge.svg
