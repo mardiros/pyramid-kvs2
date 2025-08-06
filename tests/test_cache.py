@@ -44,3 +44,9 @@ def test_get_keys_wildcard(dummy_request):
     MockCache.cached_data[b"test::kagi3"] = '"varyu3"'
     val = dummy_request.cache.list_keys("key*")
     assert val == ["key1"]
+
+    val = dummy_request.cache.list_keys("k*")
+    assert val == ["key1", "kagi3"]
+
+    val = dummy_request.cache.list_keys(r"[a-z]+\d")
+    assert val == []
