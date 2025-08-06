@@ -33,8 +33,8 @@ class MockCache(kvs.KVS):
 
     def get_keys(self, pattern: str = "*") -> List[str]:
         prefix = self.key_prefix.decode("utf-8")
-        pattern = re.escape(pattern).replace(r"\*", ".*")
-        matching = re.compile(f"^{prefix}{pattern}")
+        pattern = re.escape(self._get_key(pattern).decode("utf-8")).replace(r"\*", ".*")
+        matching = re.compile(f"^{pattern}$")
         return [
             key.replace(prefix, "")
             for key in [encoded.decode("utf-8") for encoded in self.cached_data.keys()]
