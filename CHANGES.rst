@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.1.0 - Released on 2025-08-06
+------------------------------
+* Implement the get_keys for MockCache implementation
+
 2.0.2 - Released on 2025-05-12
 ------------------------------
 * Fix broken links
