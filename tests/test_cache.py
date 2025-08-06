@@ -29,3 +29,18 @@ def test_pop_val(dummy_request):
     val = dummy_request.cache.pop("popme")
     assert val == "value"
     assert "popme" not in MockCache.cached_data
+
+
+def test_get_keys(dummy_request):
+    MockCache.cached_data[b"test::key1"] = '"value1"'
+    MockCache.cached_data[b"test::key2"] = '"value2"'
+    val = dummy_request.cache.list_keys()
+    assert val == ["key1", "key2"]
+
+
+def test_get_keys_wildcard(dummy_request):
+    MockCache.cached_data[b"test::key1"] = '"value1"'
+    MockCache.cached_data[b"test::clef2"] = '"valeur2"'
+    MockCache.cached_data[b"test::kagi3"] = '"varyu3"'
+    val = dummy_request.cache.list_keys("key*")
+    assert val == ["key1"]

@@ -1,4 +1,5 @@
-from typing import Any, ClassVar, Dict, Optional
+import re
+from typing import Any, ClassVar, Dict, List, Optional
 
 from pyramid.config import Configurator
 
@@ -29,6 +30,16 @@ class MockCache(kvs.KVS):
         value += 1
         self.cached_data[self._get_key(key)] = str(value)
         return value
+
+    def get_keys(self, pattern: str = "*") -> List[str]:
+        prefix = self.key_prefix.decode("utf-8")
+        pattern = pattern.replace("*", ".*")
+        matching = re.compile(f"^{prefix}{pattern}")
+        return [
+            key.replace(prefix, "")
+            for key in [encoded.decode("utf-8") for encoded in self.cached_data.keys()]
+            if matching.match(key)
+        ]
 
 
 def includeme(config: Configurator) -> None:
