@@ -82,8 +82,8 @@ class Redis(KVS):
         return self._client.incr(self._get_key(key))
 
     def get_keys(self, pattern: str = "*") -> List[str]:
-        keys = self._client.keys(self._get_key(pattern))
-        return [key.replace(self.key_prefix, "") for key in keys]
+        keys: List[bytes] = self._client.keys(self._get_key(pattern))
+        return [key.replace(self.key_prefix, b"").decode("utf-8") for key in keys]
 
 
 class _NoCodec:
