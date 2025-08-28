@@ -1,6 +1,6 @@
 [project]
 name = "pyramid-kvs2"
-version = "2.1.0"
+version = "2.1.1"
 description = "Session and cache for Pyramid"
 authors = [{ name = "Gandi", email = "tech@gandi.net" }]
 readme = "README.rst"

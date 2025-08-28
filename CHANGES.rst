@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.1.1 - Released on 2025-08-28
+------------------------------
+* Hotfix for get_keys method for the redis backend (unicode issue).
+
 2.1.0 - Released on 2025-08-06
 ------------------------------
 * Implement the get_keys for MockCache implementation
